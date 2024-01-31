@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Item extends Model
 {
     use HasFactory;
-    public function portafolioitem(): BelongsTo
+
+    public function portafolioitems(): HasMany
     {
-        return $this->belongsTo(Portafolioitem::class);
-    }
+        return $this->hasMany(Portafolioitem::class);
+    }    
 }

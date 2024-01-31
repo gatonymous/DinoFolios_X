@@ -10,23 +10,25 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Portafolio extends Model
 {
     use HasFactory;
-    public function portafolioitem(): BelongsTo
+
+
+    public function portafolioitems(): HasMany
     {
-        return $this->belongsTo(Portafolioitem::class);
+        return $this->hasMany(Portafolioitem::class);
     }
 
-    public function users(): HasMany
+    public function user(): BelongsTo
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function semestres(): HasMany
+    public function semestre(): BelongsTo
     {
-        return $this->hasMany(Semestre::class);
+        return $this->belongsTo(Semestre::class);
     }
 
-    public function cursos(): HasMany
+    public function curso(): BelongsTo
     {
-        return $this->hasMany(Curso::class);
-    }
+        return $this->belongsTo(Curso::class);
+    }    
 }

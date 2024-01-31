@@ -10,13 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Portafolioitem extends Model
 {
     use HasFactory;
-    public function portafolios(): HasMany
+    public function portafolio(): BelongsTo
     {
-        return $this->hasMany(Portafolio::class);
+        return $this->belongsTo(Portafolio::class);
     }
 
-    public function items(): HasMany
+    public function item(): BelongsTo
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Item::class);
     }
+    
 }

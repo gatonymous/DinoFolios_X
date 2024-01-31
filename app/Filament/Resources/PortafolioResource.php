@@ -30,11 +30,12 @@ class PortafolioResource extends Resource
                     'pendiente' => 'Pendiente',
                 ])
                 ->required(),
+                           
                 Forms\Components\Select::make('user_id')
                 ->relationship('user', 'name')
                 ->searchable()
                 ->preload()                
-                ->required(),
+                ->required(),            
                 Forms\Components\Select::make('semestre_id')
                 ->relationship('semestre', 'name')
                 ->searchable()
