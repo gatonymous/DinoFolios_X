@@ -126,7 +126,7 @@
                     <img src="img/universidad.jpg" alt="Nuevo Icono" class="w-10 h-10 object-cover rounded-full">
                 </div>
                 <div class="pcl-header-cta-buttons">
-                    <a class="btn pcl-header-cta-button" href="http://127.0.0.1:8000/admin/login" target="_blank">Iniciar Sesión</a>
+                    <a class="btn pcl-header-cta-button" href="#" onclick="redirectToLogin()">Iniciar Sesión</a>
                     <a class="btn pcl-header-cta-button" href="http://in.unsaac.edu.pe/home/" target="_blank">Página Principal</a>
                     <a class="btn pcl-header-cta-button" href="#">Nosotros</a>
                     <a class="btn pcl-header-cta-button" href="#">Contacto</a>
@@ -157,6 +157,12 @@
     </div>
 
     <script>
+        function redirectToLogin() {
+            var dominioActual = window.location.origin;
+            var urlDestino = dominioActual + '/admin/login';
+            window.location.href = urlDestino;
+        }
+        
         const images = [
             'img/escuela1.jpg',
             'img/escuela2.jpg',
@@ -166,7 +172,7 @@
         let currentImage = 0;
 
         function changeBackgroundImage() {
-            document.body.style.backgroundImage = `url('${images[currentImage]}')`;
+            document.body.style.backgroundImage = url('${images[currentImage]}');
             currentImage = (currentImage + 1) % images.length;
         }
 

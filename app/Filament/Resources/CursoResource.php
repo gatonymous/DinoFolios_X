@@ -33,6 +33,7 @@ class CursoResource extends Resource
                     'teorico' => 'Teórico',
                     'practico' => 'Práctico',
                 ])
+                ->required(),
             ]);
     }
 
