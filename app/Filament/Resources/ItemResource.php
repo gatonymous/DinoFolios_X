@@ -25,6 +25,7 @@ class ItemResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('format')
                 ->required()
+                ->label('Nombre del formato')
                 ->maxLength(255),
                 Forms\Components\Select::make('leaf_color')
                 ->options([
@@ -32,15 +33,18 @@ class ItemResource extends Resource
                     'naranja' => 'Naranja',
                     'rojo' => 'Rojo',
                 ])
+                ->label('Color de hoja')
                 ->required(),
                 Forms\Components\TextInput::make('observation')
                 ->required()
+                ->label('Observación')
                 ->maxLength(255),
                 Forms\Components\Select::make('type')
                 ->options([
                     'a' => 'A',
                     'b' => 'B',                    
                 ])
+                ->label('Tipo')
                 ->required(),
             ]);
     }
@@ -50,10 +54,14 @@ class ItemResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('format')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('leaf_color'),
-                Tables\Columns\TextColumn::make('observation'),
-                Tables\Columns\TextColumn::make('type'),
+                    ->searchable()
+                    ->label('Nombre Formato'),
+                Tables\Columns\TextColumn::make('leaf_color')
+                    ->label('Color Hoja'),
+                Tables\Columns\TextColumn::make('observation')
+                    ->label('Observación'),
+                Tables\Columns\TextColumn::make('type')
+                    ->label('Tipo'),
                 
             ])
             ->filters([

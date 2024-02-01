@@ -25,12 +25,15 @@ class SemestreResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                 ->required()
+                ->label('Semestre')
                 ->maxLength(255),                
                 Forms\Components\DatePicker::make('date_start')
                 ->required()
+                ->label('Fecha de Inicio')
                 ->maxDate(now()),
                 Forms\Components\DatePicker::make('date_end')
                 ->required()
+                ->label('Fecha de cierre')
                 ->maxDate(now()),
             ]);
     }
@@ -40,11 +43,14 @@ class SemestreResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->searchable(),                
+                    ->searchable()
+                    ->label('Semestre'),                
                 Tables\Columns\TextColumn::make('date_start')
-                    ->sortable(),
+                    ->sortable()
+                    ->label('inicio'),
                 Tables\Columns\TextColumn::make('date_end')
-                    ->sortable(),
+                    ->sortable()
+                    ->label('cierre'),
                 
             ])
             ->filters([

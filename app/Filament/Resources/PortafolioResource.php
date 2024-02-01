@@ -29,12 +29,14 @@ class PortafolioResource extends Resource
                     'observado' => 'Observado',
                     'pendiente' => 'Pendiente',
                 ])
+                ->label('Estado del Portafolio')
                 ->required(),
                            
                 Forms\Components\Select::make('user_id')
                 ->relationship('user', 'name')
                 ->searchable()
-                ->preload()                
+                ->preload()  
+                ->label('Nombre de Docente')              
                 ->required(),            
                 Forms\Components\Select::make('semestre_id')
                 ->relationship('semestre', 'name')
@@ -54,9 +56,11 @@ class PortafolioResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('status')
-                    ->searchable(),                
+                    ->searchable()
+                    ->label('Estado Portafolio'),                
                 Tables\Columns\TextColumn::make('user.name')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Docente'),
                 Tables\Columns\TextColumn::make('semestre.name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('curso.name')
@@ -68,7 +72,8 @@ class PortafolioResource extends Resource
                         'completo' => 'Completo',
                         'observado' => 'Observado',
                         'pendiente' => 'Pendiente',
-                    ]),
+                    ])
+                    ->label('Estado'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

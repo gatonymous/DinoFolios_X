@@ -24,15 +24,17 @@ class PortafolioitemResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('portafolio_id')
-                ->relationship('portafolio', 'status')
-                ->searchable()
-                ->preload()                
-                ->required(),            
+                    ->relationship('portafolio', 'status')
+                    ->searchable()
+                    ->preload()
+                    ->label('Estado del Portafolio')                
+                    ->required(),            
                 Forms\Components\Select::make('item_id')
-                ->relationship('item', 'observation')
-                ->searchable()
-                ->preload()                
-                ->required(),
+                    ->relationship('item', 'observation')
+                    ->searchable()
+                    ->preload()   
+                    ->label('Observación del ítem')             
+                    ->required(),
             ]);
     }
 
@@ -41,9 +43,11 @@ class PortafolioitemResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('portafolio.status')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Estado Portafolio'),
                 Tables\Columns\TextColumn::make('item.observation')
-                    ->searchable(),
+                    ->searchable()
+                    ->label('Observación'),
             ])
             ->filters([
                 //

@@ -25,11 +25,13 @@ class CursoResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                 ->required()
-                ->maxLength(255),
+                ->maxLength(255)
+                ->label('Nombre del curso'),
                 Forms\Components\Select::make('type')
+                ->label('Tipo')
                 ->options([
-                    'teorico' => 'Teorico',
-                    'practico' => 'Practico',
+                    'teorico' => 'Teórico',
+                    'practico' => 'Práctico',
                 ])
             ]);
     }
@@ -39,8 +41,10 @@ class CursoResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Nombre Curso')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('type'),
+                Tables\Columns\TextColumn::make('type')
+                    ->label('Tipo'),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('type')
