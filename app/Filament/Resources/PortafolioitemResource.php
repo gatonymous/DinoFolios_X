@@ -42,12 +42,22 @@ class PortafolioitemResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('portafolio.user.name')
+                    ->searchable()
+                    ->label('User'),
+                Tables\Columns\TextColumn::make('portafolio.curso.name')
+                    ->searchable()
+                    ->label('Curso'),
                 Tables\Columns\TextColumn::make('portafolio.status')
                     ->searchable()
-                    ->label('Estado Portafolio'),
+                    ->label('Estado Portafolio'), 
                 Tables\Columns\TextColumn::make('item.observation')
                     ->searchable()
-                    ->label('Observación'),
+                    ->label('Observación'),                               
+                Tables\Columns\TextColumn::make('portafolio.user.name')
+                    ->searchable()
+                    ->label('User'),  
+                               
             ])
             ->filters([
                 //
