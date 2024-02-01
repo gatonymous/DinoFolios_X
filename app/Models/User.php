@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Portafolio::class);
     }    
+
+    public function canAccessFilament(): bool
+    {
+        return $this->hasRole(['admin', 'writer', 'revisor']);
+    }  
 }
