@@ -13,6 +13,8 @@ Este proyecto tiene como objetivo desarrollar un sistema de información web par
 
 ## Tecnologías
 
+- [Filament](https://filamentphp.com/).
+- [Laravel Spatie](https://spatie.be/docs/laravel-permission/v6/introduction). 
 - Laravel (PHP Framework)
 - PHP (Lenguaje de Programación)
 - MySQL (Base de Datos)
